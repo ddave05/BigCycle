@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- scaling for different sized browsers -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--font links-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+
+    <!--css stylesheet link-->
+    <link rel="stylesheet" href="../cycle.css">
+    <!--part b-->
+    <title>Register</title>
+</head>
+<body>
+
+ <!-- grid -->
+ <div class="grid-container">
+
+    <!--header with 'logo'-->
+    <div class="header">
+        <img src="../images/pexels-adam-dubec-1595483.jpg" alt="bike in a field" class="image1">
+        <div class="text"><h1>Big Cycle</h1></div>
+    </div>
+
+    <!--menu display-->
+    <div class="menu">
+            <a href="../index.html">Home</a>
+            <a href="../landmarks.html">Landmarks</a>
+            <a href="../links.html">Links</a>
+            <a href="../videos.html">Videos</a>
+    </div>
+       
+
+        <div class="main"> 
+            <h1>Check eligibility</h1>
+        
+                <label for="postcode">Enter you postcode </label>
+                <input type="text" id="postcode" maxlength="9" name="postcode">
+
+            <button id="btsubmit">Check Postcode</button>
+
+            <!--empty div to diplay the message -->
+            <div id="message"></div>
+        </div>
+        
+        <div class="footer"></div>   
+</div>
+
+
+</body>
+</html>
+
+<!-- JavaScript rules -->
+<script>
+//event listener for the button 
+document.getElementById("btsubmit").addEventListener("click", display);
+
+//function to be executed when button is clicked 
+function display() {
+   
+    //variables 
+    var postCode = document.getElementById("postcode").value;
+    postCode = postCode.toLowerCase();
+
+    var sunderlandPostCode = "sr";
+    var checkIfInSunderland = postCode.includes(sunderlandPostCode);
+    
+    // code execution with if/else statement 
+    if (checkIfInSunderland) {
+        document.getElementById("message").innerHTML = "Your postcode is valid, visit your nearest practice to sign up as a new patient."
+        console.log("valid postcode");
+    }
+    
+    else {
+    alert("Sorry, we can only sign up patients from Sunderland (SR) and surrounding areas at this time");
+    console.log("invalid postcode")
+    }
+}
+
+</script>
